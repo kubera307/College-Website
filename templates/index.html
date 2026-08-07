@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CONFIDENT PU COLLEGE KADUR</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f6f9;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #002147;
+      color: white;
+      padding: 15px 40px;
+    }
+
+    .header-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo-center {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-center img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .logo-center h1 {
+      font-size: 24px;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #ffd700;
+    }
+
+   .hero {
+  height: 350px;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+    url("{{ url_for('static', filename='images/background.jpg.jpeg') }}") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+
+    .hero h2 {
+      background: rgba(0,0,0,0.6);
+      padding: 25px;
+      border-radius: 8px;
+      font-size: 34px;
+      color: white;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      color: #002147;
+      margin-bottom: 35px;
+    }
+
+    .highlight-section {
+      background: #e6f0ff;
+      padding: 40px 20px;
+      border-radius: 10px;
+    }
+
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      width: 280px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+
+    .card h3 {
+      color: #003366;
+      margin-bottom: 10px;
+    }
+
+    .card img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .gallery img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      margin: 10px;
+      border-radius: 8px;
+    }
+
+    .contact-box {
+      background: white;
+      max-width: 650px;
+      margin: auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      text-align: left;
+    }
+
+    .contact-box p {
+      margin-bottom: 10px;
+    }
+
+    .contact-form {
+      margin-top: 25px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    .contact-form button {
+      background: #002147;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background: #003366;
+    }
+
+    #status {
+      margin-top: 10px;
+      color: green;
+      font-weight: bold;
+    }
+
+    footer {
+      background: #002147;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    
+
+    @media(max-width: 768px) {
+      .header-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 6px;
+      }
+
+      .hero h2 {
+        font-size: 26px;
+      }
+
+      
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo-center">
+      
+        <img src="{{ url_for('static', filename='images/logo.png.jpeg') }}" alt="Logo" >
+     
+      <h1>CONFIDENT PU COLLEGE KADUR</h1>
+    </div>
+
+    <nav>
+      <a href="#">Home</a>
+      <a href="#courses">Courses</a>
+      <a href="#whycollege">Why Us</a>
+      <a href="#faculty">Faculty</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <h2><strong>Empowering Students for a Bright Future</strong></h2>
+</div>
+
+<section id="courses">
+  <div class="container highlight-section">
+    <h2>Courses Offered</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Science</h3>
+        <p><strong>PCMB</strong> - Physics, Chemistry, Mathematics, Biology</p>
+        <p><strong>PCMC</strong> - Physics, Chemistry, Mathematics, Computer Science</p>
+      </div>
+
+      <div class="card">
+        <h3>Commerce</h3>
+        <p>Accountancy, Business Studies, Economics, Computer Science</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="whycollege">
+  <div class="container highlight-section">
+    <h2>Why Our College?</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Experienced Faculty</h3>
+        <p>Highly qualified teachers with strong academic experience.</p>
+      </div>
+
+      <div class="card">
+        <h3>Modern Infrastructure</h3>
+        <p>Well-equipped classrooms, labs, library, and learning facilities.</p>
+      </div>
+
+      <div class="card">
+        <h3>NEET & JEE Coaching</h3>
+        <p>Special coaching support for competitive exams.</p>
+      </div>
+
+      <div class="card">
+        <h3>Bus & Hostel</h3>
+        <p>Safe transport and hostel facilities for students.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faculty">
+  <div class="container">
+    <h2>Founders</h2>
+
+    <div class="cards">
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/maths.jpg.jpeg') }}" alt="Santhosh Kumar">
+        <h3>Mr.Santhosh Kumar K P</h3>
+        <p><strong>HOD of Mathematics</strong></p>
+        <p>M.Sc, B.ED | 14 Years</p>
+      </div>
+
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/Chemistry.jpg.jpeg') }}" alt="Faculty">
+        <h3>Mr. Manjunath H J</h3>
+        <p><strong>HOD of Chemistry</strong></p>
+        <p>M.Sc, B.ED | 8 Years</p>
+      </div>
+
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/biology.jpg.jpeg') }}" alt="Faculty">
+        <h3>Mr. Sanjay Kumar H L</h3>
+        <p><strong>HOD of Biology</strong></p>
+        <p>M.Sc,B.ED | 8 Years</p>
+
+      </div>
+        <div class="card">
+        <img src="{{ url_for('static', filename='images/commerce.jpg.jpeg') }}" alt="Faculty">
+        <h3>Mr. Chethan B K</h3>
+        <p><strong>Hod of Commerce</strong></p>
+        <p>M.Com, B.ED | 10 Years</p>
+      </div>
+
+      <div class="card">
+        <img src="{{ url_for('static', filename='images/Chemistry.jpg.jpeg') }}" alt="Faculty">
+        <h3>Mr. Manjunath H J</h3>
+        <p><strong>Chemistry</strong></p>
+        <p>M.Sc, B.ED | 8 Years</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <h2>College Gallery</h2>
+
+    <div class="gallery">
+      <img src="{{ url_for('static', filename='images/promotion.jpg.jpeg') }}" alt="Campus">
+      <img src="{{ url_for('static', filename='images/classroom.jpg.jpeg') }}" alt="Classroom">
+      <img src="{{ url_for('static', filename='images/bus.jpg.jpeg') }}" alt="Classroom">
+      <img src="{{ url_for('static', filename='images/event.jpg.jpeg') }}" alt="Classroom">
+    </div>
+  </div> 
+</section>
+
+<section id="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+
+    <div class="contact-box">
+      <p><strong>Email:</strong> info@abcpucollege.com</p>
+      <p><strong>Phone:</strong> +91 9876543210</p>
+      <p><strong>Address:</strong> CONFIDENT P U COLLEGE ULUKINAKALLU DAGA BUILDING, Bangalore - Honnavar Hwy, Kadur, Karnataka 577548</p>
+
+      <form action="/contact" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Enter your name" required>
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <input type="tel" name="phone" placeholder="Enter your phone number">
+        <textarea name="message" rows="5" placeholder="Enter your message" required></textarea>
+        <button type="submit">Submit Enquiry</button>
+      </form>
+<p id="status">
+  
+</p>
+
+    </div>
+  </div>
+</section>
+<footer>
+  <p>&copy; 2026 CONFIDENT PU College | All Rights Reserved</p>
+</footer>
+</body>
+</html>
