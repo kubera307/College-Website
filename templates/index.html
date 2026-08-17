@@ -44,6 +44,16 @@
       object-fit: cover;
     }
 
+    .logo-image {
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .logo-image:hover {
+      transform: scale(1.12);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+    }
+
     .logo-center h1 {
       font-size: 24px;
     }
@@ -128,12 +138,162 @@
       margin-bottom: 15px;
     }
 
+    .gallery-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 18px;
+      overflow-x: auto;
+      padding: 8px 6px 14px;
+      scroll-snap-type: x proximity;
+      scrollbar-width: thin;
+      scrollbar-color: #002147 #e7edf7;
+      flex: 1;
+      scroll-behavior: smooth;
+    }
+
     .gallery img {
-      width: 300px;
-      height: 200px;
+      flex: 0 0 280px;
+      height: 220px;
       object-fit: cover;
-      margin: 10px;
-      border-radius: 8px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      scroll-snap-align: start;
+    }
+
+    .gallery-arrow {
+      background: #002147;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 42px;
+      height: 42px;
+      font-size: 24px;
+      cursor: pointer;
+      flex-shrink: 0;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    .gallery-arrow:hover {
+      background: #003b75;
+    }
+
+    .gallery img:hover,
+    .card img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
+    }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .image-modal.open {
+      display: flex;
+    }
+
+    .image-modal img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      background: white;
+    }
+
+    .image-modal-close {
+      position: absolute;
+      top: 22px;
+      right: 32px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .image-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 32px;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .image-nav:hover {
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .image-nav-prev {
+      left: 25px;
+    }
+
+    .image-nav-next {
+      right: 25px;
+    }
+
+    .principal-message {
+      background: linear-gradient(135deg, #ffffff, #edf4ff);
+      max-width: 1000px;
+      margin: 0 auto 40px;
+      padding: 30px 35px;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      border-left: 6px solid #002147;
+      text-align: left;
+    }
+
+    .principal-message-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .principal-message img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #002147;
+      background: white;
+    }
+
+    .principal-message h3 {
+      color: #002147;
+      margin-bottom: 6px;
+      font-size: 1.5rem;
+    }
+
+    .principal-message .role {
+      color: #004a99;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .principal-message p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.8;
     }
 
     .contact-box {
@@ -211,6 +371,219 @@
 
       
     }
+    /* Professional college website refresh */
+    :root {
+      --navy: #062b55;
+      --blue: #0b5cab;
+      --gold: #f3b332;
+      --ink: #16263b;
+      --muted: #627087;
+      --surface: #f5f8fc;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      color: var(--ink);
+      background: white;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 12px 24px;
+      background: rgba(6, 43, 85, 0.97);
+      box-shadow: 0 3px 14px rgba(6, 27, 52, 0.18);
+    }
+
+    .header-container {
+      max-width: none;
+      margin: 0;
+    }
+
+    .logo-center { gap: 12px; }
+    .logo-center img { width: 78px; height: 78px; border: 2px solid rgba(255,255,255,.5); }
+    .logo-center h1 { font-size: clamp(1.4rem, 2.2vw, 1.75rem); letter-spacing: .6px; }
+
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 4px; }
+    nav a {
+      margin: 0;
+      padding: 8px 10px;
+      font-size: .88rem;
+      border-radius: 5px;
+      transition: background .2s ease, color .2s ease;
+    }
+    nav a:hover { color: #fff; background: rgba(255,255,255,.14); }
+
+    .hero {
+      min-height: 560px;
+      height: auto;
+      padding: 72px 24px;
+      background: linear-gradient(90deg, rgba(3, 26, 53, .66) 0%, rgba(3, 26, 53, .42) 48%, rgba(3, 26, 53, .16) 100%),
+        url("{{ url_for('static', filename='images/background.jpg.jpeg') }}") center/cover no-repeat;
+      justify-content: flex-start;
+    }
+
+    .hero-content { width: min(100%, 760px); text-align: left; }
+    .hero .eyebrow, .section-kicker {
+      color: var(--blue);
+      font-size: .78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .hero .eyebrow { color: #ffd77a; }
+    .hero h2 {
+      max-width: 720px;
+      margin: 14px 0 16px;
+      padding: 0;
+      background: none;
+      color: white;
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.1;
+    }
+    .hero p { max-width: 600px; color: rgba(255,255,255,.9); font-size: 1.08rem; }
+    .hero .hero-button {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 13px 20px;
+      color: #09294d;
+      background: var(--gold);
+      border-radius: 5px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .hero .hero-button:hover { background: #ffd06a; transform: translateY(-2px); }
+
+    section { padding: 82px 24px; text-align: center; }
+    .container { max-width: 1180px; }
+    h2 { margin-bottom: 12px; color: var(--navy); font-size: clamp(1.9rem, 3vw, 2.6rem); }
+    .section-kicker { margin-bottom: 8px; }
+    .section-intro { max-width: 650px; margin: 0 auto 34px; color: var(--muted); }
+
+    section h2::after {
+      display: block;
+      width: 46px;
+      height: 3px;
+      margin: 13px auto 0;
+      border-radius: 4px;
+      background: var(--gold);
+      content: "";
+    }
+
+    .highlight-section { padding: 0; background: transparent; }
+    #courses,
+    #principal-message,
+    #faculty { background: linear-gradient(135deg, #f8fbff 0%, #edf6ff 100%); }
+    #faculty .cards { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    #faculty .card { grid-column: span 2; }
+    #faculty .card:nth-child(4) { grid-column: 2 / span 2; }
+
+    #whycollege,
+    #gallery { background: linear-gradient(135deg, #eaf4ff 0%, #f7fbff 100%); }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      justify-content: initial;
+      gap: 22px;
+    }
+    .card {
+      width: auto;
+      padding: 26px;
+      border: 1px solid #e5ebf2;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(12, 45, 78, .07);
+      text-align: left;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 18px 32px rgba(12, 45, 78, .13); }
+    .card h3 { color: var(--navy); font-size: 1.17rem; }
+    .card p { color: var(--muted); margin-top: 8px; }
+    .card p strong { color: var(--blue); }
+
+    #courses .card { border-top: 4px solid var(--gold); }
+    #whycollege .card { border-top: 4px solid var(--blue); }
+
+    #principal-message { padding-top: 76px; padding-bottom: 76px; }
+    .principal-message {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 42px 48px;
+      border-left-color: var(--gold);
+      box-shadow: 0 16px 35px rgba(12, 45, 78, .1);
+    }
+    .principal-message img { width: 135px; height: 135px; }
+    .principal-message p { font-size: 1.06rem; }
+
+    #faculty { background: linear-gradient(135deg, #f8fbff 0%, #edf6ff 100%); }
+    #faculty .card { padding: 15px 15px 22px; text-align: center; overflow: hidden; }
+    #faculty .card img { height: 255px; margin-bottom: 16px; cursor: pointer; }
+    #faculty .card h3 { margin-bottom: 4px; }
+
+    .gallery-wrap { gap: 14px; }
+    .gallery { padding: 10px 4px 18px; }
+    .gallery img { border-radius: 12px; height: 245px; }
+    .gallery-arrow { background: var(--navy); }
+    .gallery-arrow:hover { background: var(--blue); }
+
+    #contact {
+      position: relative;
+      padding: 58px 24px;
+      background: linear-gradient(135deg, #eaf4ff 0%, #f8fbff 55%, #e2f0ff 100%);
+      overflow: hidden;
+    }
+    #contact::before,
+    #contact::after {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(11, 92, 171, .06);
+      content: "";
+    }
+    #contact::before { top: -150px; left: -90px; }
+    #contact::after { right: -100px; bottom: -160px; }
+    #contact .container { position: relative; z-index: 1; }
+    .contact-box {
+      max-width: 780px;
+      padding: 30px 34px;
+      border: 1px solid #e3eaf2;
+      border-top: 4px solid var(--gold);
+      border-radius: 12px;
+      box-shadow: 0 12px 28px rgba(12, 45, 78, .09);
+    }
+    .contact-box p { color: #40516a; }
+    .contact-form button { background: var(--blue); padding: 14px; }
+    .contact-form button:hover { background: var(--navy); }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(11, 92, 171, .12);
+    }
+
+    footer { padding: 25px; background: #031c38; }
+
+    @media (max-width: 768px) {
+      .header-container { flex-direction: column; text-align: center; }
+      .logo-center img { width: 68px; height: 68px; }
+      nav a { font-size: .8rem; padding: 6px 7px; }
+      .hero { min-height: 480px; padding: 60px 22px; }
+      section { padding: 62px 18px; }
+      .principal-message { padding: 25px; }
+      .principal-message-header { flex-direction: column; text-align: center; }
+      .gallery-arrow { width: 36px; height: 36px; }
+      .gallery img { flex-basis: 240px; height: 205px; }
+      #contact { padding: 52px 18px; }
+      .contact-box { padding: 24px 20px; }
+      #faculty .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      #faculty .card,
+      #faculty .card:nth-child(4) { grid-column: auto; }
+    }
   </style>
 </head>
 
@@ -220,7 +593,7 @@
   <div class="header-container">
     <div class="logo-center">
       
-        <img src="{{ url_for('static', filename='images/logo.png.jpeg') }}" alt="Logo" >
+        <img src="{{ url_for('static', filename='images/logo.png.jpeg') }}" alt="Logo" class="logo-image" >
      
       <h1>CONFIDENT PU COLLEGE KADUR</h1>
     </div>
@@ -237,12 +610,19 @@
 </header>
 
 <div class="hero">
-  <h2><strong>Empowering Students for a Bright Future</strong></h2>
+  <div class="hero-content">
+    <p class="eyebrow">Confident PU College, Kadur</p>
+    <h2>Empowering Students for a Bright Future</h2>
+    <p>Quality education, caring mentorship, and focused preparation for every student's next step.</p>
+    <a class="hero-button" href="#contact">Enquire Now</a>
+  </div>
 </div>
 
 <section id="courses">
   <div class="container highlight-section">
+    <p class="section-kicker">Academic pathways</p>
     <h2>Courses Offered</h2>
+    <p class="section-intro">Choose a strong foundation for university, competitive examinations, and a successful career.</p>
 
     <div class="cards">
       <div class="card">
@@ -261,7 +641,9 @@
 
 <section id="whycollege">
   <div class="container highlight-section">
+    <p class="section-kicker">Why choose us</p>
     <h2>Why Our College?</h2>
+    <p class="section-intro">An encouraging environment that helps students learn with confidence and purpose.</p>
 
     <div class="cards">
       <div class="card">
@@ -287,9 +669,32 @@
   </div>
 </section>
 
+<section id="principal-message">
+  <div class="container">
+    <p class="section-kicker">A message from our principal</p>
+    <h2>Learning with Purpose</h2>
+    <div class="principal-message">
+      <div class="principal-message-header">
+        <img src="{{ url_for('static', filename='images/maths.jpg.jpeg') }}" alt="Principal Santhosh Kumar K P">
+        <div>
+          <h3>Mr. Santhosh Kumar K P</h3>
+          <div class="role">Principal</div>
+        </div>
+      </div>
+      <p>
+        “Education is the foundation of a strong and meaningful life. At Confident PU College, we aim to nurture
+        discipline, confidence, and academic excellence so that every student is prepared to face the future with
+        knowledge, integrity, and courage.”
+      </p>
+    </div>
+  </div>
+</section>
+
 <section id="faculty">
   <div class="container">
-    <h2>Founders</h2>
+    <p class="section-kicker">Our educators</p>
+    <h2>Meet Our Faculty</h2>
+    <p class="section-intro">Experienced teachers committed to academic clarity, individual guidance, and student success.</p>
 
     <div class="cards">
       <div class="card">
@@ -302,29 +707,29 @@
       <div class="card">
         <img src="{{ url_for('static', filename='images/Chemistry.jpg.jpeg') }}" alt="Faculty">
         <h3>Mr. Manjunath H J</h3>
-        <p><strong>HOD of Chemistry</strong></p>
+        <p><strong>Dept of Chemistry</strong></p>
         <p>M.Sc, B.ED | 8 Years</p>
       </div>
 
       <div class="card">
         <img src="{{ url_for('static', filename='images/biology.jpg.jpeg') }}" alt="Faculty">
         <h3>Mr. Sanjay Kumar H L</h3>
-        <p><strong>HOD of Biology</strong></p>
+        <p><strong>Dept of Biology</strong></p>
         <p>M.Sc,B.ED | 8 Years</p>
 
       </div>
         <div class="card">
         <img src="{{ url_for('static', filename='images/commerce.jpg.jpeg') }}" alt="Faculty">
         <h3>Mr. Chethan B K</h3>
-        <p><strong>Hod of Commerce</strong></p>
+        <p><strong>Dept of Commerce</strong></p>
         <p>M.Com, B.ED | 10 Years</p>
       </div>
 
       <div class="card">
-        <img src="{{ url_for('static', filename='images/Chemistry.jpg.jpeg') }}" alt="Faculty">
-        <h3>Mr. Manjunath H J</h3>
-        <p><strong>Chemistry</strong></p>
-        <p>M.Sc, B.ED | 8 Years</p>
+        <img src="{{ url_for('static', filename='images/physics.jpg.jpeg') }}" alt="Faculty">
+        <h3>Mr. Abhishek G D</h3>
+        <p><strong>Dept of Physics</strong></p>
+        <p>M.Sc, B.ED| M.SC | 8 Years</p>
       </div>
 
     </div>
@@ -333,23 +738,31 @@
 
 <section id="gallery">
   <div class="container">
+    <p class="section-kicker">Campus life</p>
     <h2>College Gallery</h2>
+    <p class="section-intro">A glimpse into our learning spaces, activities, and student experiences.</p>
 
-    <div class="gallery">
-      <img src="{{ url_for('static', filename='images/promotion.jpg.jpeg') }}" alt="Campus">
-      <img src="{{ url_for('static', filename='images/classroom.jpg.jpeg') }}" alt="Classroom">
-      <img src="{{ url_for('static', filename='images/bus.jpg.jpeg') }}" alt="Classroom">
-      <img src="{{ url_for('static', filename='images/event.jpg.jpeg') }}" alt="Classroom">
+    <div class="gallery-wrap">
+      <button class="gallery-arrow" type="button" id="galleryPrev" aria-label="Previous gallery image">&#8249;</button>
+      <div class="gallery" id="gallerySlider">
+        <img src="{{ url_for('static', filename='images/promotion.jpg.jpeg') }}" alt="Campus">
+        <img src="{{ url_for('static', filename='images/classroom.jpg.jpeg') }}" alt="Classroom">
+        <img src="{{ url_for('static', filename='images/bus.jpg.jpeg') }}" alt="Bus">
+        <img src="{{ url_for('static', filename='images/event.jpg.jpeg') }}" alt="Event">
+      </div>
+      <button class="gallery-arrow" type="button" id="galleryNext" aria-label="Next gallery image">&#8250;</button>
     </div>
   </div> 
 </section>
 
 <section id="contact">
   <div class="container">
+    <p class="section-kicker">Get in touch</p>
     <h2>Contact Us</h2>
+    <p class="section-intro">Have a question about admissions or courses? We are here to help.</p>
 
     <div class="contact-box">
-      <p><strong>Email:</strong> info@abcpucollege.com</p>
+      <p><strong>Email:</strong> confidentpucollege@gmail.com</p>
       <p><strong>Phone:</strong> +91 9876543210</p>
       <p><strong>Address:</strong> CONFIDENT P U COLLEGE ULUKINAKALLU DAGA BUILDING, Bangalore - Honnavar Hwy, Kadur, Karnataka 577548</p>
 
@@ -367,8 +780,18 @@
     </div>
   </div>
 </section>
+
+<div id="imageModal" class="image-modal" aria-label="Image preview" aria-hidden="true">
+  <button class="image-nav image-nav-prev" type="button" id="modalPrev" aria-label="Previous image">&#8249;</button>
+  <span class="image-modal-close" aria-label="Close image preview">&times;</span>
+  <img id="modalImage" src="" alt="Expanded view">
+  <button class="image-nav image-nav-next" type="button" id="modalNext" aria-label="Next image">&#8250;</button>
+</div>
+
 <footer>
   <p>&copy; 2026 CONFIDENT PU College | All Rights Reserved</p>
 </footer>
+
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>

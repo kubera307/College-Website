@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect, flash, jsonify
 import sqlite3
 import os
 
@@ -38,10 +38,35 @@ def home():
 # -----------------------------
 @app.route("/contact", methods=["POST"])
 def contact():
-    name = request.form["name"]
-    email = request.form["email"]
-    phone = request.form["phone"]
-    message = request.form["message"]
+    if request.is_json:
+        data = request.get_json(silent=True) or {}
+        name = (data.get("name") or "").strip()
+        email = (data.get("email") or "").strip()
+        phone = (data.get("phone") or "").strip()
+        message = (data.get("message") or "").strip()
+
+        if not name or not email or not message:
+            return jsonify({"error": "Please fill in all required fields."}), 400
+
+        conn = sqlite3.connect(DATABASE)
+        cursor = conn.cursor()
+        cursor.execute("""
+            INSERT INTO contacts(name,email,phone,message)
+            VALUES(?,?,?,?)
+        """, (name, email, phone, message))
+        conn.commit()
+        conn.close()
+
+        return jsonify({"message": "Your enquiry has been submitted successfully!"})
+
+    name = request.form.get("name", "").strip()
+    email = request.form.get("email", "").strip()
+    phone = request.form.get("phone", "").strip()
+    message = request.form.get("message", "").strip()
+
+    if not name or not email or not message:
+        flash("Please fill in all required fields.")
+        return redirect("/")
 
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
