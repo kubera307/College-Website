@@ -5,7 +5,7 @@ import os
 app = Flask(__name__)
 app.secret_key = "supersecretkey"  # Needed for flash messages
 
-DATABASE = "college.db"
+DATABASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "college.db")
 
 # -----------------------------
 # Create Database & Table
@@ -25,6 +25,9 @@ def create_table():
     """)
     conn.commit()
     conn.close()
+
+# Initialize database table on startup
+create_table()
 
 # -----------------------------
 # Home Page
@@ -109,6 +112,6 @@ def delete(id):
 # Run Application
 # -----------------------------
 if __name__ == "__main__":
-    create_table()
     print("Database Location:", os.path.abspath(DATABASE))
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=False)
